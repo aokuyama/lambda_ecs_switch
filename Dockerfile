@@ -1,7 +1,7 @@
 FROM python:3.9-alpine
 
 RUN apk add --no-cache g++ autoconf automake make cmake libtool curl-dev libexecinfo-dev
-RUN pip install awslambdaric
+RUN pip install awslambdaric boto3
 
 ARG APP_DIR="/app"
 WORKDIR ${APP_DIR}

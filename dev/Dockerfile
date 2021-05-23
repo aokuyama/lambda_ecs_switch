@@ -1,10 +1,7 @@
 FROM python:3.9-alpine
 
 RUN apk add --no-cache g++ autoconf automake make cmake libtool curl-dev libexecinfo-dev
-RUN pip install awslambdaric
+RUN pip install awslambdaric boto3
 
 ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/bin/aws-lambda-rie
 RUN chmod 755 /usr/bin/aws-lambda-rie
-
-ENTRYPOINT ["/bin/ash", "/app/entry.sh"]
-CMD ["app.handler"]
